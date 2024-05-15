@@ -1,5 +1,6 @@
 import LandingPage from './Pages/LandingPage';
 import PropertyPage from './Pages/PropertyPage';
+import PropertyDetails from './Pages/PropertyDetails';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -16,7 +17,12 @@ import {
         element:<PropertyPage/>,
     
       },
-      { path: "*", element: <h1>Not Found</h1> },
+      { path: "*", element: <h1>Page Not Found</h1> },
+      {
+        path: "/propertydetails/:id",
+        element:<PropertyDetails />,
+    
+      },
     ]);
   
 const App = () => <RouterProvider router={router} />;

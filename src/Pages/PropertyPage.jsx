@@ -35,6 +35,7 @@ const PropertyPage = () => {
           <PropertyList properties={properties} />
         )}
       </div>
+      
     </div>
   );
 };
