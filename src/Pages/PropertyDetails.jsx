@@ -53,7 +53,7 @@ const PropertyDetails = (id) => {
                 <img
                   className="w-full h-full object-cover"
                   src={property.image}
-                  alt="Property Image"
+                  alt={property.title}
                 />
               </div>
             </div>

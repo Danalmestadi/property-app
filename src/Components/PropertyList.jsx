@@ -46,7 +46,8 @@ const PropertyList = ({ properties }) => {
             <img
               className="rounded-t-lg"
               src={property.image}
-              alt="Property Image"
+              alt={property.title}
+             
             />
 
             <div className="p-5">
@@ -92,12 +93,12 @@ const PropertyList = ({ properties }) => {
             ...Array(Math.ceil(properties.length / propertiesPerPage)).keys(),
           ].map((number) => (
             <li key={number} className="cursor-pointer mx-1">
-              <a
+              <span
                 onClick={() => paginate(number + 1)}
                 className="hover:bg-gray-200 px-3 py-1 rounded"
               >
                 {number + 1}
-              </a>
+              </span>
             </li>
           ))}
         </ul>

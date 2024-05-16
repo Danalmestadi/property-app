@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const DeleteProperty = ({ id }) => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [setError] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
   const handleDelete = async () => {
