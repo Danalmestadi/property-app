@@ -37,8 +37,8 @@ const PropertyPage = () => {
   return (
     <div className="bg-slate-50 min-h-screen ">
       <Navbar />
-      <div className="container mx-auto px-4 py-8 mt-8">
-        {loading ? (
+      <div className="container mx-auto px-4 pt-8 pb-16 xs:pt-16">
+                {loading ? (
           <p className="text-center">Loading...</p>
         ) : error ? (
           <p className="text-center text-red-500">{error}</p>

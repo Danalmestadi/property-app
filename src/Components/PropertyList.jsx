@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CryptoJS from "crypto-js";
+
 const PropertyList = ({ properties }) => {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
@@ -30,37 +31,34 @@ const PropertyList = ({ properties }) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="container mx-auto px-8 overflow-hidden">
+    <div className="container h-auto w-auto xs-h-screen  ">
       <div className="my-8">
         <h1 className="text-3xl font-bold text-left text-gray-900">
           Properties
         </h1>
         <p className="text-left text-gray-700">List of properties</p>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
         {currentProperties.map((property) => (
           <div
             key={property.id}
             className="max-w-sm bg-white border border-gray-200 rounded-lg shadow"
           >
             <img
-              className="rounded-t-lg"
+              className=" rounded-t-lg"
               src={property.image}
               alt={property.title}
-             
             />
-
-            <div className="p-5">
+            <div className="p-5 px-4">
               <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900">
                 {property.title}
               </h5>
-
               <p className="mb-3 font-normal text-gray-700">{property.city}</p>
               <p className="mb-3 font-normal text-gray-700">
                 Ab molestiae deleniti autem officiis fuga eveniet veniam
               </p>
               <p className="mb-3 font-bold text-gray-700">${property.price}</p>
-              <div className="flex items-center  sm:flex-row  justify-between">
+              <div className="flex items-center sm:flex-row justify-between">
                 <button
                   onClick={() => handleClick(property.id)}
                   className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-neutral-800 rounded-lg hover:bg-black focus:ring-4 focus:outline-none focus:ring-gray-300"

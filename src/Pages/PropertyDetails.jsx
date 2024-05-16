@@ -14,8 +14,8 @@ const PropertyDetails = (id) => {
 
   return (
     <div className="bg-slate-50 min-h-screen py-8">
-      <div className="container bg-white rounded-lg shadow-lg justify-center  mx-auto px-8 py-8  mt-20">
-        <Link
+<div className="container bg-white rounded-lg shadow-lg justify-center mx-auto px-4 py-4 mt-20 xs:w-full sm:w-11/12 md:w-10/12 lg:w-9/12 xl:w-8/12">
+            <Link
           to={`/editproperty/${property.id}`}
           className="flex items-center  justify-end space-x-2 text-black font-semibold"
         >
@@ -49,9 +49,9 @@ const PropertyDetails = (id) => {
         <div>
           <div className="flex flex-col md:flex-row -mx-4">
             <div className="md:flex-1 px-4">
-              <div className="h-[460px] item-left rounded-lg bg-gray-300 mb-4">
+              <div className="h-auto w-auto item-left rounded-lg bg-gray-300 mb-4">
                 <img
-                  className="w-full h-full object-cover"
+                  className="object-cover"
                   src={property.image}
                   alt={property.title}
                 />
