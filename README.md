@@ -1,5 +1,7 @@
+<div align="center">
+  <img src="/images/logo2.png" alt="EstateEase Logo">
+</div>
 
-# ![EstateEase](/images/logo2.png)
 # Real Estate Property Management Application
 <table>
 <tr>
