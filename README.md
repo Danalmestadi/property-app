@@ -1,5 +1,5 @@
 
-# ![EstateEase](/images/logo.png)
+# ![EstateEase](/images/logo2.png)
 # Real Estate Property Management Application
 <table>
 <tr>
