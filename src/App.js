@@ -20,7 +20,7 @@ import {
         element:<PropertyPage/>,
     
       },
-      { path: "*", element: <h1>Page Not Found</h1> },
+     
       {
         path: "/propertydetails/:id",
         element:<PropertyDetails />,

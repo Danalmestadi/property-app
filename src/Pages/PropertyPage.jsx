@@ -28,9 +28,7 @@ const PropertyPage = () => {
 
     fetchData();
 
-    // Cleanup function
     return () => {
-      // Any cleanup code if necessary
     };
   }, []);
 
