@@ -3,6 +3,7 @@ import PropertyPage from './Pages/PropertyPage';
 import PropertyDetails from './Pages/PropertyDetails';
 import AddProperty from './Pages/AddProperty';
 import EditProperty from './Pages/EditProperty';
+import DeleteProperty from './Components/DeleteProperty';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -30,7 +31,7 @@ import {
         element:<AddProperty />,
       },
       {path:"/editproperty/:id",element:<EditProperty/>}
-      
+      , { path:'deleteproperty/:id', element:<DeleteProperty/>}
     ]);
   
 const App = () => <RouterProvider router={router} />;

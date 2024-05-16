@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CryptoJS from "crypto-js";
-
+import DeleteProperty from "./DeleteProperty";
 const PropertyList = ({ properties }) => {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
@@ -82,7 +82,7 @@ const PropertyList = ({ properties }) => {
                     />
                   </svg>
                 </button>
-                <div className="flex items-center">
+                <div className="flex items-center flex-col">
                   <Link
                     to={`/editproperty/${property.id}`}
                     className="flex items-center space-x-1"
@@ -102,8 +102,12 @@ const PropertyList = ({ properties }) => {
                       <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
                       <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
                     </svg>
-                    <span className=" font-semibold text-black">Edit</span>
+                    <span className="font-semibold text-black">Edit</span>
                   </Link>
+
+                  <div className="mt-2">
+                    <DeleteProperty id={property.id} />
+                  </div>
                 </div>
               </div>
             </div>

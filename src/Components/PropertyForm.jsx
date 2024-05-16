@@ -8,7 +8,7 @@ export default function PropertyForm({
   property,
   title,
   isEdit,
-  errors
+  errors,
 }) {
   return (
     <div className="bg-slate-50 min-h-screen py-8">
@@ -86,12 +86,16 @@ export default function PropertyForm({
                 value={property.description}
                 onChange={handleChange}
                 rows="8"
-                className={`block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 ${errors.description ? 'border-red-500' : ''}`}
+                className={`block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 ${
+                  errors.description ? "border-red-500" : ""
+                }`}
                 placeholder="Your description here"
                 required
               ></textarea>
               {errors.description && (
-                <p className="text-red-500 text-sm mt-1">{errors.description}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.description}
+                </p>
               )}
             </div>
           </div>
