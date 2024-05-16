@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CryptoJS from "crypto-js";
 
 const PropertyList = ({ properties }) => {
@@ -19,7 +19,6 @@ const PropertyList = ({ properties }) => {
   };
 
   const handleClick = (id) => {
- 
     const encryptedId = encryptId(id);
     const property = properties.find((property) => property.id === id);
     if (property) {
@@ -61,28 +60,52 @@ const PropertyList = ({ properties }) => {
                 Ab molestiae deleniti autem officiis fuga eveniet veniam
               </p>
               <p className="mb-3 font-bold text-gray-700">${property.price}</p>
-              <button
-                onClick={() => handleClick(property.id)}
-              
-                className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-neutral-800 rounded-lg hover:bg-black focus:ring-4 focus:outline-none focus:ring-gray-300"
-              >
-                Details
-                <svg
-                  className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 14 10"
+              <div className="flex items-center justify-between">
+                <button
+                  onClick={() => handleClick(property.id)}
+                  className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-neutral-800 rounded-lg hover:bg-black focus:ring-4 focus:outline-none focus:ring-gray-300"
                 >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M1 5h12m0 0L9 1m4 4L9 9"
-                  />
-                </svg>
-              </button>
+                  Details
+                  <svg
+                    className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 10"
+                  >
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M1 5h12m0 0L9 1m4 4L9 9"
+                    />
+                  </svg>
+                </button>
+                <div className="flex items-center">
+                  <Link
+                    to={`/editproperty/${property.id}`}
+                    className="flex items-center space-x-1"
+                  >
+                    <svg
+                      className="h-4 w-4 text-black"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                      <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                    </svg>
+                    <span className=" font-semibold text-black">Edit</span>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         ))}

@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
-import fetchData from "../API/Propertyferch";
+import React, { useState, useEffect } from "react";
 import PropertyList from "../Components/PropertyList";
 import Navbar from "../Components/NavbarCp";
 
@@ -8,20 +7,32 @@ const PropertyPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchDataAndUpdateState = useCallback(async () => {
-    try {
-      const data = await fetchData();
-      setProperties(data);
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
   useEffect(() => {
-    fetchDataAndUpdateState();
-  }, [fetchDataAndUpdateState]);
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://6643af396c6a6565870807bf.mockapi.io/api/v1/property"
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        setProperties(data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+
+    // Cleanup function
+    return () => {
+      // Any cleanup code if necessary
+    };
+  }, []);
 
   return (
     <div className="bg-slate-50 min-h-screen ">
@@ -35,7 +46,6 @@ const PropertyPage = () => {
           <PropertyList properties={properties} />
         )}
       </div>
-      
     </div>
   );
 };

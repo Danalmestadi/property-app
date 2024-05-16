@@ -1,6 +1,8 @@
 import LandingPage from './Pages/LandingPage';
 import PropertyPage from './Pages/PropertyPage';
 import PropertyDetails from './Pages/PropertyDetails';
+import AddProperty from './Pages/AddProperty';
+import EditProperty from './Pages/EditProperty';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -23,6 +25,12 @@ import {
         element:<PropertyDetails />,
     
       },
+      {
+        path: "/addproperty",
+        element:<AddProperty />,
+      },
+      {path:"/editproperty/:id",element:<EditProperty/>}
+      
     ]);
   
 const App = () => <RouterProvider router={router} />;
