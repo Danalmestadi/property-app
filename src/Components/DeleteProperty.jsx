@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const DeleteProperty = ({ id }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const navigate = useNavigate();
   const handleDelete = async () => {
     try {
       setLoading(true);
@@ -20,7 +22,7 @@ const DeleteProperty = ({ id }) => {
       }
 
       setModalOpen(false);
-      window.location.reload();
+      navigate("/property");
     } catch (error) {
       console.error("Error deleting property:", error);
       setError(error.message);
@@ -35,6 +37,7 @@ const DeleteProperty = ({ id }) => {
         onClick={() => setModalOpen(true)}
         disabled={loading}
         type="button"
+        className="bg-slate-100 hover:bg-slate-300 text-black font-bold py-2 px-4 rounded inline-flex items-center"
       >
         <svg
           className="inline-block h-6 w-6 text-slate-900"
@@ -54,7 +57,7 @@ const DeleteProperty = ({ id }) => {
           <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
           <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
         </svg>
-        <span className="inline-block font-semibold text-black mr-2">
+        <span className="inline-block mt-1 font-semibold text-black mr-2">
           Delete
         </span>
       </button>
